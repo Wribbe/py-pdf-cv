@@ -2,8 +2,11 @@
 import os
 import socket
 
-HTML = """\
+from assemble import html
+HTML = f"""\
 HTTP/1.1 200 OK
+
+{html()}
 """
 
 def main():

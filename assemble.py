@@ -2,36 +2,63 @@
 import os
 from pathlib import Path
 
-read = lambda p: Path(p).read_text().strip(os.linesep)
-
-html_cv, javascript = read("cv.html"), read("cv.js")
-
 def align(text):
+  """ White-space align and return the lines of the supplied text. """
+
   out = []
-  lines = text.splitlines()
+
+  # Some helper methods.
   len_whitespace = lambda l: len(l)-len(l.lstrip())
-  tag_closing = lambda l: l.lstrip().startswith('</')
+  closing_tag = lambda l: l.lstrip().startswith('</')
 
-  for prev, current in zip([""]+lines, lines+[""]):
-    w_prev, w_current = len_whitespace(prev), len_whitespace(current)
-    if w_current < w_prev and not tag_closing(current):
-      current = f"{' '*w_prev}{current}"
-    out.append(current)
-  out = out[:-1]
-  return os.linesep.join(out)
+  # Iterate over all the lines of the supplied text.
+  # Initial whitespace-length set to first line of text.
+  lines = text.splitlines()
+  w_prev = len_whitespace(lines[0])
+  for line in text.splitlines():
+    w_line = len_whitespace(line)
+    if w_line < w_prev and not closing_tag(line):
+      if line.startswith('}'):
+        # Ensure correct alignment on css-brackets.
+        line = f"{' '*(w_prev-2)}{line}"
+      else:
+        line = f"{' '*w_prev}{line}"
+      w_line = len_whitespace(line)
+    w_prev = w_line
+    out.append(line)
 
-html= align(f"""\
-<!doctype html>
-<html>
-  <head>
-  </head>
-  <body>
-    {html_cv}
-  </body>
-  <script>
-    {javascript}
-  </script>
-</html>
-""")
+  # If the text starts with whitespace, assume it is consistent and remove.
+  text = os.linesep.join(out)
+  w_all = len_whitespace(text)
+  if w_all:
+    text = os.linesep.join([l[w_all:] for l in text.splitlines()])
+  return text
 
-print(html)
+
+def html():
+  """ Entry point for html assembly, used in standalone python.py runner. """
+
+  read = lambda p: Path(p).read_text().strip(os.linesep)
+  cv_css, cv_html, cv_js = read("cv.css"), read("cv.html"), read("cv.js")
+
+  html= f"""\
+    <!doctype html>
+    <html>
+      <head>
+        <style>
+          {cv_css}
+        </style>
+      </head>
+      <body>
+        {cv_html}
+      </body>
+      <script>
+        {cv_js}
+      </script>
+    </html>
+  """
+
+  return align(html)
+
+if __name__ == "__main__":
+  print(html())
