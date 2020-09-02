@@ -32,7 +32,5 @@ def main():
     connection.sendall(HTML.encode())
     connection.close()
 
-
-
 if __name__ == "__main__":
   main()

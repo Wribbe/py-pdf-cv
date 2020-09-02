@@ -10,11 +10,11 @@ cv_raw.pdf : cv.md
 cv_uncompressed.pdf : cv_raw.pdf
 	mutool clean -d -a $^ $@
 
-cv.pdf : cv_uncompressed.pdf python.py Makefile
+cv.pdf : cv_uncompressed.pdf python.py assemble.py Makefile
 	echo "'''" > $@
 	cat cv_uncompressed.pdf >> $@
 	echo "'''">> $@
-	cat python.py >> $@
+	./assemble.py >> $@
 
 .PHONY: builddeps
 

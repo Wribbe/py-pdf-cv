@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+
 import os
 from pathlib import Path
+
 
 def align(text):
   """ White-space align and return the lines of the supplied text. """
@@ -19,7 +21,7 @@ def align(text):
     w_line = len_whitespace(line)
     if w_line < w_prev and not closing_tag(line):
       if line.startswith('}'):
-        # Ensure correct alignment on css-brackets.
+        # Ensure correct alignment on css closing-brackets.
         line = f"{' '*(w_prev-2)}{line}"
       else:
         line = f"{' '*w_prev}{line}"
@@ -36,7 +38,7 @@ def align(text):
 
 
 def html():
-  """ Entry point for html assembly, used in standalone python.py runner. """
+  """ Read files from disk, assemble and return complete html structure. """
 
   read = lambda p: Path(p).read_text().strip(os.linesep)
   cv_css, cv_html, cv_js = read("cv.css"), read("cv.html"), read("cv.js")
@@ -60,5 +62,15 @@ def html():
 
   return align(html)
 
+
+def main():
+  """ Entry point for the script, complete the full assembly and print. """
+
+  main_python_runner = Path('python.py').read_text()
+  html_expanded = html()
+  html_expanded = html_expanded.replace("{","{{").replace("}", "}}")
+  main_python_runner = main_python_runner.replace('{html()}', html_expanded)
+  print(main_python_runner)
+
 if __name__ == "__main__":
-  print(html())
+  main()
