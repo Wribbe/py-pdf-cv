@@ -2,9 +2,7 @@ DEPS_BUILD := \
 	pandoc \
   mutool \
 
-DIR_VENV := venv
-
-all: build_dependencies ${DIR_VENV} cv.pdf
+all: builddeps cv.pdf
 
 cv_raw.pdf : cv.md
 	pandoc $^ -o $@
@@ -13,21 +11,16 @@ cv_uncompressed.pdf : cv_raw.pdf
 	mutool clean -d -a $^ $@
 
 cv.pdf : cv_uncompressed.pdf python.py Makefile
-	echo "'''" >> $@
+	echo "'''" > $@
 	cat cv_uncompressed.pdf >> $@
 	echo "'''">> $@
 	cat python.py >> $@
 
-${DIR_VENV} :
-	python -m venv $@
-	$@/bin/python -m pip install pip --upgrade
-	$@/bin/python -m pip install -r requirements.txt -t .
-
-.PHONY: build_dependencies
+.PHONY: builddeps
 
 str_err := "ERROR: missing build-dependencies, please install:"
 
-define check_dependencies
+define check_deps
 	deps_missing=""; \
 	for d in ${DEPS_BUILD}; do \
 		$$d -v > /dev/null 2>&1; \
@@ -40,5 +33,5 @@ define check_dependencies
 	fi;
 endef
 
-build_dependencies:
-	@$(call check_dependencies)
+builddeps:
+	@$(call check_deps)
