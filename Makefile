@@ -4,13 +4,13 @@ DEPS_BUILD := \
 
 all: builddeps cv.pdf
 
-cv_raw.pdf : cv.md
-	pandoc $^ -o $@
+cv_raw.pdf : cv.html cv.css Makefile
+	pandoc -t html $(filter %.html,$^) -c $(filter %.css,$^) -o $@
 
 cv_uncompressed.pdf : cv_raw.pdf
 	mutool clean -d -a $^ $@
 
-cv.pdf : cv_uncompressed.pdf python.py assemble.py Makefile
+cv.pdf : cv_uncompressed.pdf python.py assemble.py cv.js Makefile
 	echo "'''" > $@
 	cat cv_uncompressed.pdf >> $@
 	echo "'''">> $@

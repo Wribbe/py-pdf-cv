@@ -2,12 +2,20 @@
 import os
 import socket
 
-from assemble import html
+from pathlib import Path
+from assemble import html, mugshot, box_svg
+
+from base64 import b64encode, b64decode
+
 HTML = f"""\
 HTTP/1.1 200 OK
 
 {html()}
 """
+
+HTML_MUGSHOT = mugshot()
+
+HTML_BOX_SVG = box_svg()
 
 def main():
   host, port, max_buff = '', 8800, 1024
@@ -28,9 +36,20 @@ def main():
         break
 
     data = data.decode('utf-8')
+    if data.startswith(f"GET /static/mugshot_resized.jpg"):
+      response = HTML_MUGSHOT
+    elif data.startswith(f"GET /static/box.svg"):
+      response = HTML_BOX_SVG
+    else:
+      response = HTML
+
     print(f'got: {data}')
-    connection.sendall(HTML.encode())
+#    print(f'sending: {response}')
+    if type(response) == str:
+      response = response.encode()
+    connection.sendall(response)
     connection.close()
 
 if __name__ == "__main__":
   main()
+
