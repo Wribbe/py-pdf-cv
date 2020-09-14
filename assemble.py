@@ -135,7 +135,7 @@ def svg_circle_half():
 
 
 def svg_circle_quater():
-  data = open(Path('static','circle_half.svg'), 'rb').read()
+  data = open(Path('static','circle_quater.svg'), 'rb').read()
   return svg_load(data)
 
 
