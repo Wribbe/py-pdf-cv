@@ -3,7 +3,7 @@ import os
 import socket
 
 from pathlib import Path
-from assemble import html, mugshot, box_svg
+from assemble import html, mugshot, svg_circle_filled
 
 from base64 import b64encode, b64decode
 
@@ -15,7 +15,10 @@ HTTP/1.1 200 OK
 
 HTML_MUGSHOT = mugshot()
 
-HTML_BOX_SVG = box_svg()
+HTML_CIRCLE_FILLED_SVG = svg_circle_filled()
+HTML_CIRCLE_EMPTY_SVG = svg_circle_empty()
+HTML_CIRCLE_HALF_SVG = svg_circle_half()
+HTML_CIRCLE_QUATER_SVG = svg_circle_quater()
 
 def main():
   host, port, max_buff = '', 8800, 1024
@@ -38,8 +41,14 @@ def main():
     data = data.decode('utf-8')
     if data.startswith(f"GET /static/mugshot_resized.jpg"):
       response = HTML_MUGSHOT
-    elif data.startswith(f"GET /static/box.svg"):
-      response = HTML_BOX_SVG
+    elif data.startswith(f"GET /static/circle_full.svg"):
+      response = HTML_CIRCLE_FILLED_SVG
+    elif data.startswith(f"GET /static/circle_empty.svg"):
+      response = HTML_CIRCLE_EMPTY_SVG
+    elif data.startswith(f"GET /static/circle_half.svg"):
+      response = HTML_CIRCLE_HALF_SVG
+    elif data.startswith(f"GET /static/circle_quater.svg"):
+      response = HTML_CIRCLE_QUATER_SVG
     else:
       response = HTML
 

@@ -1,8 +1,515 @@
-<h2> CV - Stefan Eng</h2>
-<div class="content">
-  <p>
-    Some other things?.
-  </p>
-  <img src="static/mugshot_resized.jpg">
-  <img src="static/box.svg">
-</div>
+<!doctype html>
+<html>
+  <head>
+    <title>Stefan Eng | +46709421875</title>
+    <style>
+      h1 {
+      	display: none;
+      }
+      h2 {
+      	margin: 0em;
+      	font-size: 2em;
+      }
+      h4, h5 {
+      	margin: 0;
+      	margin-top: 0.5em;
+      }
+      h3 {
+      	margin-top: 1em;
+      	margin-bottom: 0;
+      }
+      .content {
+      	display: flex;
+      	flex-direction: row;
+      	margin: 2.8em;
+      	margin-top: 2.8em;
+      }
+      #sidebar {
+      	display: flex;
+      	flex-direction: column;
+      	flex-basis: 20em;
+      	align-items: center;
+      	justify-content: top;
+      	margin-top: .7em;
+      }
+      #main {
+      	display: flex;
+      	flex-direction: column;
+      	width: 100%;
+      	padding-left: 2em;
+      }
+      #mugshot {
+      	width: 180px;
+      	border-radius: 50%;
+      }
+      #info {
+      	margin: 0;
+      	max-width: 700px;
+      }
+      .sub-heading {
+      	display: flex;
+      	width: 100%;
+      	align-content: center;
+      	align-items: center;
+      	font-size: 0.8em;
+      }
+      .sub-title{
+      	display: inline-block;
+      	width: 15em;
+      	text-align: left;
+      	font-size: 1.3em;
+      	font-style: italic;
+      }
+      .description {
+      	display: inline-block;
+      	font-style: italic;
+      	width: 14em;
+      }
+      .time img {
+      	vertical-align: middle;
+      	height: 1em;
+      }
+      .time {
+      	display: flex;
+      	justify-content: center;
+      	width: 6em;
+      }
+      .duration {
+      	display: inline-block;
+      	font-style: italic;
+      	margin-left: 1em;
+      }
+      .beginning {
+      	display: inline-block;
+      	width: 4.89em;
+      }
+      hr {
+      	width: 100%;
+      }
+      .blurb {
+      	margin-top: .3em;
+      	margin-bottom: .6em;
+      	margin-left: 1em;
+      }
+      #skills {
+      	display: flex;
+      	width: 100%;
+      	flex-direction: column;
+      	align-items: flex-start;
+      }
+      #skills h4 {
+      	margin-bottom: 0.3em;
+      	margin-top: 1.0em;
+      }
+      #skills h4:first-child {
+      	margin-top: .5em;
+      }
+      #skills img {
+      	height: 1.1em;
+      	margin-left: .3em;
+      }
+      #skills div {
+      	width: 100%;
+      	display: flex;
+      	align-items: center;
+      	margin-top: .3em;
+      }
+      #skills div span {
+      	flex-grow: 1;
+      }
+      #legend {
+      	display: flex;
+      	width: 100%;
+      	align-items: center;
+      	margin-top: .7em;
+      }
+      #legend h3 {
+      	margin: 0;
+      	margin-right: 3em;
+      }
+      #legend img {
+      	height: .8em;
+      	margin-right: .3em;
+      	margin-left: .7em;
+      	vertical-align: middle;
+      }
+      ol div {
+      	margin-left: .6em;
+      }
+      ol code {
+      	background-color: lightgrey;
+      }
+      ol div span {
+      	display: inline-block;
+      	width: 6em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+    	<div id="sidebar">
+    		<img id="mugshot" src="static/mugshot_resized.jpg">
+    		<div id="skills">
+    			<h4> Programming Languages</h4>
+    			<div>
+    				<span>Python</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_half.svg">
+    			</div>
+    			<div>
+    				<span>C</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Javascript</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_half.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Java</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>C++</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Haskell</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<h4> Environments </h4>
+    			<div>
+    				<span>Linux</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Windows</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_half.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Unix</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<h4> Tooling </h4>
+    			<div>
+    				<span>Make</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_half.svg">
+    			</div>
+    			<div>
+    				<span>Vim</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Git</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Pdb</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_half.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Gdb</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Pycharm</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>Valgrind</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<h4> Languages </h4>
+    			<div>
+    				<span>Swedish</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    			</div>
+    			<div>
+    				<span>English</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_half.svg">
+    			</div>
+    			<div>
+    				<span>Polish</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<div>
+    				<span>German</span>
+    				<img src="static/circle_full.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    				<img src="static/circle_empty.svg">
+    			</div>
+    			<hr>
+    			<h4> Links </h4>
+    			<span>Github: <a href="">wribbe/</a></span>
+    			<hr>
+    			<h4> References </h4>
+    			Provided on request.
+    		</div>
+    	</div>
+    	<div id="main">
+    		<div id="info">
+    			<h2>Stefan Eng</h2>
+    			<div>kontakt@stefaneng.se | +46 709 42 18 75</div>
+    			<div id="legend">
+    				<h3>Work Experience</h3>
+    				<img src="static/circle_full.svg">
+    				<span> - full-time </span>
+    				<img src="static/circle_quater.svg">
+    				<span> - part-time </span>
+    			</div>
+    			<hr/>
+    			<div class="sub-heading">
+    				<span class="sub-title">Massive Entertainment</span>
+    				<span class="description">Junior Tools Programmer</span>
+    				<span class="time"><img src="static/circle_full.svg"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2019 Feb
+    					</span>
+    					- Ongoing</span>
+    			</div>
+    			<div class="blurb">
+    				Building and maintaining tools for the cinematics department at Massive
+    				Entertainment, Malmö. Most of the work is in Python with some
+    				interaction with C++, Windows-batch, power- and posix-shell.
+    			</div>
+    			<div class="sub-heading">
+    				<span class="sub-title">Massive Entertainment</span>
+    				<span class="description">Programming Intern</span>
+    				<span class="time"><img src="static/circle_full.svg"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2018 Sep
+    					</span>
+    					- 2019 Feb</span>
+    			</div>
+    			<div class="blurb">
+    				Joined the cinematics team as a programming intern as part of my master
+    				thesis.
+    			</div>
+    			<div class="sub-heading">
+    				<span class="sub-title">Axis Communications</span>
+    				<span class="description">Consultant Programmer</span>
+    				<span class="time"><img src="static/circle_quater.svg"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2016 Jun
+    					</span>
+    					- 2016 Dec</span>
+    			</div>
+    			<div class="blurb">
+    				Planned, designed and implemented a python-based web-application with
+    				the goal of easing the work-flow surrounding release-notes.
+    			</div>
+    			<div class="sub-heading">
+    				<span class="sub-title">Ekovent</span>
+    				<span class="description">Consultant Programmer</span>
+    				<span class="time"><img src="static/circle_quater.svg"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2014 Sep
+    					</span>
+    					- 2014 Nov</span>
+    			</div>
+    			<div class="blurb">
+    				Was brought back to expand previous excel automation, error checking
+    				and figure generation.
+    			</div>
+    			<div class="sub-heading">
+    				<span class="sub-title">Axis Communications</span>
+    				<span class="description">Consultant Programmer</span>
+    				<span class="time"><img src="static/circle_quater.svg"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    					2014 Jun
+    					</span>
+    					- 2016 Jun</span>
+    			</div>
+    			<div class="blurb">
+    				Brought in order to continue development of an internal tool
+    				written by previous LTH students. First exposure to using Python in an
+    				production setting.
+    			</div>
+    			<div class="sub-heading">
+    				<span class="sub-title">Ekovent</span>
+    				<span class="description">Consultant Programmer</span>
+    				<span class="time"><img src="static/circle_quater.svg"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2014 Apr
+    					</span>
+    					- 2014 Jun
+    				</span>
+    			</div>
+    			<div class="blurb">
+    				Contracted in order to use VBA to create a self-checking excel
+    				spred-sheet for tracking testing of firesaftey equipment.
+    			</div>
+    			<h3>Education</h3>
+    			<hr/>
+    			<div class="sub-heading">
+    				<span class="sub-title">Computer Science - LTH</span>
+    				<span class="description">Years: 5.5</span>
+    				<span class="time"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2014 Jan
+    					</span>
+    					- 2020 Aug</span>
+    			</div>
+    			<div class="blurb">
+    				Figured out I have a knack for programming and made a switch from
+    				nano-science. I have been loving it since, the closer to the metal the
+    				better.
+    			</div>
+    			<div class="sub-heading">
+    				<span class="sub-title">Nano Science - LTH</span>
+    				<span class="description">Years: 1.5</span>
+    				<span class="time"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2012 Sep
+    					</span>
+    					- 2014 Jan</span>
+    			</div>
+    			<div class="blurb">
+    				Tried to return to the nano-studies after a stint being employed by the
+    				Swedish armed forces.
+    			</div>
+    			<div class="sub-heading">
+    				<span class="sub-title">Nano Science - LTH</span>
+    				<span class="description">Years: 2.5</span>
+    				<span class="time"></span>
+    				<span class="duration">
+    					<span class="beginning">
+    						2008 Sep
+    					</span>
+    					- 2010 Jan</span>
+    			</div>
+    			<div class="blurb">
+    				Was interested in the broad focus, research focus and cutting-edge
+    				technology.
+    			</div>
+    			<h3>Something about me</h3>
+    			<hr/>
+    			I am a programmer at heart and would frankly not know what to do if this
+    			line of work was not available. I am driven to solve problems, either by
+    			myself or as part of a team, and get the most enjoyment from when the
+    			solution to a problem results in an easier and more streamlined
+    			work-environment for someone else.
+    			<h3>Something about this document</h3>
+    			<hr/>
+    			This document can host itself as a web-page. The only dependency to see
+    			this in action is Python 3.x, and a safe environment (VM, sandbox, spare
+    			hardware, etc.) to run it on/in. (Not that it does anything malicious,
+    			never hurts to be safe!)
+    			<h3>How to run this document</h3>
+    			<hr/>
+    			<ol>
+    				<li>
+    					Generate the md5-sum of this document:
+    					<div>
+    						<span>Windows:</span>
+    						<code>CertUtil -hashfile &lt;path to file&gt; MD5</code>
+    					</div>
+    					<div>
+    						<span>Linux:</span>
+    						<code>cat &lt;path to file&gt; | md5sum | cut -d' ' -f1</code>
+    					</div>
+    				</li>
+    				<li>
+    					Make sure that the hash is identical to <a href="">the one hosted on
+    						my github.</a>
+    				</li>
+    				<li>
+    					Run the pdf: <code>python &lt;path to file&gt;</code>
+    				</li>
+    				<li>
+    					Point your browser to the localhost-address displayed in the window.
+    					(If the port is taken, abort and re-run, the port is randomly
+    					generated).
+    				</li>
+    			</ol>
+    		</div>
+    	</div>
+    </div>
+  </body>
+  <script>
+  </script>
+</html>

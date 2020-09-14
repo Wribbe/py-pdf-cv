@@ -66,13 +66,13 @@ def html():
       ALIGN_END,
     ])
 
-  cv_css, cv_html, cv_js = read("cv.css"), read("cv.html"), read("cv.js")
+  cv_css, cv_html, cv_js = read("cv.css"), read("cv_base.html"), read("cv.js")
 
   html= f"""\
     <!doctype html>
     <html>
       <head>
-        <title>CV - Stefan Eng</title>
+        <title>Stefan Eng | +46709421875</title>
         <style>
           {cv_css}
         </style>
@@ -105,9 +105,7 @@ def mugshot():
   response = header.encode()+data
   return response
 
-def box_svg():
-
-  data = open(Path('static','box.svg'), 'rb').read()
+def svg_load(data):
 
   header = align(f"""
     HTTP/1.0 200 OK
@@ -119,6 +117,26 @@ def box_svg():
   header = linend(header)+"\r\n"*2
   response = header.encode()+data
   return response
+
+
+def svg_circle_filled():
+  data = open(Path('static','circle_full.svg'), 'rb').read()
+  return svg_load(data)
+
+
+def svg_circle_empty():
+  data = open(Path('static','circle_empty.svg'), 'rb').read()
+  return svg_load(data)
+
+
+def svg_circle_half():
+  data = open(Path('static','circle_half.svg'), 'rb').read()
+  return svg_load(data)
+
+
+def svg_circle_quater():
+  data = open(Path('static','circle_half.svg'), 'rb').read()
+  return svg_load(data)
 
 
 def main():
