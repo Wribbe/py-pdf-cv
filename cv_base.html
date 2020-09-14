@@ -193,7 +193,10 @@
 
 			<hr>
 			<h4> Links </h4>
-			<span>Github: <a href="">wribbe/</a></span>
+			<span>
+				Github:
+				<a href="https://github.com/Wribbe/py-pdf-cv">Wribbe/py-pdf-cv</a>
+			</span>
 
 			<hr>
 			<h4> References </h4>
@@ -381,19 +384,19 @@
 					Generate the md5-sum of this document:
 					<div>
 						<span>Windows:</span>
-						<code>CertUtil -hashfile &lt;path to file&gt; MD5</code>
+						<code>CertUtil -hashfile &lt;path to pdf&gt; MD5</code>
 					</div>
 					<div>
 						<span>Linux:</span>
-						<code>cat &lt;path to file&gt; | md5sum | cut -d' ' -f1</code>
+						<code>cat &lt;path to pdf&gt; | md5sum | cut -d' ' -f1</code>
 					</div>
 				</li>
 				<li>
-					Make sure that the hash is identical to <a href="">the one hosted on
-						my github.</a>
+					Make sure that the hash is identical to
+					<a href="https://raw.githubusercontent.com/Wribbe/py-pdf-cv/master/md5hash.txt">the one hosted on my github.</a>
 				</li>
 				<li>
-					Run the pdf: <code>python &lt;path to file&gt;</code>
+					Run the pdf: <code>python &lt;path to pdf&gt;</code>
 				</li>
 				<li>
 					Point your browser to the localhost-address displayed in the window.
@@ -401,6 +404,8 @@
 					generated).
 				</li>
 			</ol>
+			All the parts of the script can be reviewed on the github linked on the
+			left side of this document.
 
 		</div>
 	</div>
