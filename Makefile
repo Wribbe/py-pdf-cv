@@ -5,7 +5,7 @@ DEPS_BUILD := \
 M := 0
 STATICS := $(wildcard static/*)
 
-all: builddeps cv.pdf md5hash.txt
+all: builddeps cv.pdf md5hash.txt README.md
 
 cv.html : cv_base.html assemble.py ${STATICS}
 	python -c "from assemble import html; print(html())" > $@
@@ -28,6 +28,9 @@ cv.pdf : cv_uncompressed.pdf python.py assemble.py cv.js Makefile
 
 md5hash.txt : cv.pdf
 	cat $^ | md5sum | cut -d' ' -f1 > $@
+
+README.md : cv.html
+	pandoc $^ -o $@
 
 .PHONY: builddeps
 
