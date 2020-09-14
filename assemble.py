@@ -73,6 +73,7 @@ def html():
     <html>
       <head>
         <title>Stefan Eng | +46709421875</title>
+        <meta charset="utf-8">
         <style>
           {cv_css}
         </style>
