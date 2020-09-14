@@ -4,8 +4,7 @@ import socket
 import random
 
 from pathlib import Path
-from assemble import html, mugshot, svg_circle_filled, \
-  svg_circle_empty, svg_circle_quater,  svg_circle_half
+from assemble import html, mugshot, svg_circle_filled, svg_circle_empty, svg_circle_quater,  svg_circle_half
 
 from base64 import b64encode, b64decode
 
