@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 import os
 import socket
+import random
 
 from pathlib import Path
-from assemble import html, mugshot, svg_circle_filled
+from assemble import \
+  html, mugshot, svg_circle_filled, svg_circle_empty, svg_circle_quater, \
+  svg_circle_half
 
 from base64 import b64encode, b64decode
 
@@ -21,14 +24,21 @@ HTML_CIRCLE_HALF_SVG = svg_circle_half()
 HTML_CIRCLE_QUATER_SVG = svg_circle_quater()
 
 def main():
-  host, port, max_buff = '', 8800, 1024
+  host, max_buff = '', 1024
+
   socket_in = socket.socket(
     socket.AF_INET, # IPv4.
     socket.SOCK_STREAM, # TCP.
   )
+
+  port = int(''.join([str(random.choice(range(1,10))) for _ in range(4)]))
+
   socket_in.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
   socket_in.bind((host, port))
   socket_in.listen(1)
+
+  print(f"Hosting web-view of pdf on http://localhost:{port}")
+
   while True:
     connection, address = socket_in.accept()
     data = b""
