@@ -36,7 +36,7 @@ def main():
   socket_in.listen(1)
 
   print(f"Hosting web-view of pdf on http://localhost:{port}")
-  print("Use CTRL+C (Linux) or CTRL+Z,<Enter> (Windows) to stop.")
+  print("Use CTRL+C (Linux) or CTRL+Break/Pause (Windows) to stop.")
 
   while True:
     connection, address = socket_in.accept()
