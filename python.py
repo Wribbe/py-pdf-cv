@@ -38,35 +38,38 @@ def main():
   print(f"Hosting web-view of pdf on http://localhost:{port}")
   print("Use CTRL+C (Linux) or CTRL+Break/Pause (Windows) to stop.")
 
-  while True:
-    connection, address = socket_in.accept()
-    data = b""
+  try:
     while True:
-      data_part = connection.recv(max_buff)
-      data += data_part
-      if len(data_part) < max_buff:
-        break
+      connection, address = socket_in.accept()
+      data = b""
+      while True:
+        data_part = connection.recv(max_buff)
+        data += data_part
+        if len(data_part) < max_buff:
+          break
 
-    data = data.decode('utf-8')
-    if data.startswith(f"GET /static/mugshot_resized.jpg"):
-      response = HTML_MUGSHOT
-    elif data.startswith(f"GET /static/circle_full.svg"):
-      response = HTML_CIRCLE_FILLED_SVG
-    elif data.startswith(f"GET /static/circle_empty.svg"):
-      response = HTML_CIRCLE_EMPTY_SVG
-    elif data.startswith(f"GET /static/circle_half.svg"):
-      response = HTML_CIRCLE_HALF_SVG
-    elif data.startswith(f"GET /static/circle_quater.svg"):
-      response = HTML_CIRCLE_QUATER_SVG
-    else:
-      response = HTML
+      data = data.decode('utf-8')
+      if data.startswith(f"GET /static/mugshot_resized.jpg"):
+        response = HTML_MUGSHOT
+      elif data.startswith(f"GET /static/circle_full.svg"):
+        response = HTML_CIRCLE_FILLED_SVG
+      elif data.startswith(f"GET /static/circle_empty.svg"):
+        response = HTML_CIRCLE_EMPTY_SVG
+      elif data.startswith(f"GET /static/circle_half.svg"):
+        response = HTML_CIRCLE_HALF_SVG
+      elif data.startswith(f"GET /static/circle_quater.svg"):
+        response = HTML_CIRCLE_QUATER_SVG
+      else:
+        response = HTML
 
-    print(f'got: {data}')
-#    print(f'sending: {response}')
-    if type(response) == str:
-      response = response.encode()
-    connection.sendall(response)
-    connection.close()
+      print(f'got: {data}')
+  #    print(f'sending: {response}')
+      if type(response) == str:
+        response = response.encode()
+      connection.sendall(response)
+      connection.close()
+  except KeyboardInterrupt:
+    print("\rInterrupt caught, Exiting..")
 
 if __name__ == "__main__":
   main()
